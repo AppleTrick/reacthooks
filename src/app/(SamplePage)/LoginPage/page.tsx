@@ -1,8 +1,12 @@
 'use client';
 
+import { useState } from 'react';
 import styles from './loginpage.module.css';
 
 const LoginPage = () => {
+  const [email, setEmail] = useState('');
+  const [pw, setPw] = useState('');
+
   return (
     <div className={styles.page}>
       <div className={styles.titleWrap}>
@@ -12,7 +16,7 @@ const LoginPage = () => {
       <div className={styles.contentsWrap}>
         <div className={styles.inputTitle}>이메일주소</div>
         <div className={styles.inputWrap}>
-          <input className={styles.input} placeholder="test@gmail.com" />
+          <input className={styles.input} placeholder="test@gmail.com" value={email} onChange={(e) => setEmail(e.target.value)} />
         </div>
         <div className={styles.errorMessageWrap}>올바른 이메일 주소를 입력해주세요</div>
 
@@ -20,7 +24,7 @@ const LoginPage = () => {
           비밀번호
         </div>
         <div className={styles.inputWrap}>
-          <input className={styles.input} placeholder="영문, 숫자, 특수문자 포함 8자리를 입력해주세요" />
+          <input className={styles.input} placeholder="영문, 숫자, 특수문자 포함 8자리를 입력해주세요" value={pw} onChange={(e) => setPw(e.target.value)} />
         </div>
         <div className={styles.errorMessageWrap}> 영문, 숫자, 특수문자 포함 8자리를 입력해주세요</div>
       </div>
